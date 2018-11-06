@@ -39,8 +39,10 @@ else:
 print('Downloading meta for', n_images, 'images')
 n_processed = 0
 meta = []
+curr_page = 1
 while n_processed < n_images:
-    url = create_url(query=args.query, page_num=1)
+    url = create_url(query=args.query, page_num=curr_page)
+    curr_page += 1
     results = get_results(url)
     n_processed += 30
     if n_processed > n_images:
